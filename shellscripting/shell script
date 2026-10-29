@@ -1,0 +1,132 @@
+# 🚀 Automated Web Hosting Using Shell Script
+
+A simple Linux automation project that automatically installs and configures the Apache2 web server, downloads a website template, extracts the website files, and deploys the website to the Apache web root using a Bash shell script.
+
+## 📌 Project Overview
+
+This project demonstrates how to automate website hosting on a Linux server using a Shell Script. Instead of manually installing a web server and configuring website files, the script performs the deployment process with a single execution.
+
+The project uses the **Orbital website template from Tooplate** as the sample website.
+
+## ✨ Features
+
+- ⚙️ **Automated Installation** — Installs Apache2, Unzip, and Curl.
+- 🌐 **Web Server Configuration** — Starts and enables Apache2 at boot.
+- 📥 **Automatic Download** — Downloads the website template ZIP file.
+- 📦 **File Extraction** — Extracts the website template to the web directory.
+- 🚀 **Automatic Deployment** — Places the website files in `/var/www/html`.
+- 🔄 **Service Restart** — Restarts Apache2 after deployment.
+- 🐧 **Linux Administration** — Demonstrates practical Linux command-line skills.
+
+## 🛠️ Technologies Used
+
+| Technology | Purpose |
+|---|---|
+| Bash / Shell Scripting | Automates deployment tasks |
+| Linux (Ubuntu/Debian) | Hosting environment |
+| Apache2 | Web server |
+| Curl | Downloads the website ZIP file |
+| Unzip | Extracts website files |
+| Tooplate | Source of the sample website template |
+
+## 📂 Project Structure
+
+```text
+automated-web-hosting/
+├── web-hosting.sh
+└── README.md
+```
+
+## ⚙️ Prerequisites
+
+Before running the script, ensure you have:
+
+- A Linux server running Ubuntu or Debian.
+- A user account with `sudo` privileges.
+- An active internet connection.
+- Network access to the server's HTTP port (TCP port 80).
+
+## 🚀 Installation and Usage
+
+### 1. Clone the Repository
+
+```bash
+git clone YOUR_GITHUB_REPOSITORY_URL
+cd automated-web-hosting
+```
+
+Replace `YOUR_GITHUB_REPOSITORY_URL` with your actual GitHub repository URL.
+
+### 2. Make the Script Executable
+
+```bash
+chmod +x web-hosting.sh
+```
+
+### 3. Run the Script
+
+```bash
+./web-hosting.sh
+```
+
+The script will install the required packages, download the template, deploy the website, and restart Apache2.
+
+### 4. Access Your Website
+
+Find your server's public IP address and open the following URL in your browser:
+
+```text
+http://YOUR_SERVER_PUBLIC_IP
+```
+
+If you are using AWS EC2, make sure the Security Group allows inbound HTTP traffic on port 80.
+
+## 🔍 How It Works
+
+1. Updates the Linux package index.
+2. Installs Apache2, Unzip, and Curl.
+3. Starts Apache2 and enables it to start automatically after reboot.
+4. Removes the existing Apache web root.
+5. Downloads the Orbital template ZIP file.
+6. Extracts the template into `/var/www/`.
+7. Moves the extracted website directory to `/var/www/html`.
+8. Restarts Apache2 to serve the deployed website.
+
+## 📚 Skills Demonstrated
+
+- Linux server administration
+- Bash scripting and command automation
+- Apache web server setup
+- Website deployment on Linux
+- File and directory management
+- Package installation and service management
+- Basic cloud server hosting concepts
+
+## 🔐 Important Notes
+
+- **Existing website files:** The script deletes `/var/www/html` before deployment. Back up any existing website before running it.
+- **Permissions:** The script uses `sudo` for administrative operations.
+- **Template directory:** The script expects the downloaded ZIP to contain a directory named `2167_orbital`.
+- **Production readiness:** For production use, add error handling, validate the downloaded ZIP, verify the extracted directory, and avoid deleting the current website until the new deployment succeeds.
+- **HTTPS:** Configure a TLS certificate if you plan to expose the website publicly over HTTPS.
+
+## 🎯 Future Improvements
+
+- Add error handling and execution logging.
+- Validate download and extraction success.
+- Automate deployment using AWS EC2 user data.
+- Configure a custom domain and HTTPS using Let's Encrypt.
+- Add a rollback mechanism for failed deployments.
+- Integrate the script into a CI/CD pipeline.
+
+## 👨‍💻 Author
+
+**Archit Anand Borse**
+
+Cloud Computing | Linux | AWS | DevOps | Shell Scripting
+
+---
+
+⭐ If you find this project useful, consider starring the repository.
+
+*This project was created for learning and demonstrating automated web hosting and Linux administration.*
